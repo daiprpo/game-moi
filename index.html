@@ -2,15 +2,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Flappy Bird</title>
     <style>
-        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #000; }
-        canvas { border: 1px solid #000; }
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            overflow: hidden;
+            flex-direction: column;
+        }
+        canvas {
+            border: 1px solid #000;
+            max-width: 100%;
+            max-height: 100%;
+            display: none; /* Ẩn canvas ban đầu */
+        }
+        #selectionScreen {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
     </style>
 </head>
 <body>
-    <canvas id="gameCanvas" width="320" height="480"></canvas>
+    <div id="selectionScreen">
+        <h1>Chọn Chim</h1>
+        <button onclick="selectBird('default')">Chim Mặc Định</button>
+        <button onclick="selectBird('red')">Chim Đỏ</button>
+        <button onclick="selectBird('blue')">Chim Xanh</button>
+        <button onclick="startGame()">Bắt Đầu</button>
+    </div>
+    <canvas id="gameCanvas"></canvas>
     <script src="game.js"></script>
 </body>
 </html>
